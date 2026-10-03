@@ -1,26 +1,21 @@
-# Registro de Uso de IA Generativa
-
-> **Política da disciplina:** O uso de IA generativa é permitido como
-> assistente. O discente é **integralmente responsável** por testar, auditar e
-> defender todo o código entregue, independentemente de como foi gerado.
-
-## Instruções
-
-Para cada aula ou entrega, registre abaixo:
-- **Data**
-- **Ferramenta** (ChatGPT, Copilot, Claude, etc.)
-- **Prompt(s) utilizado(s)** (resumo ou cópia)
-- **O que foi feito com a saída** (copiado integralmente, adaptado, usado como referência, descartado)
-
 ---
 
-## Registro
+## 🤖 Declaração de Uso de IA (A1)
 
-| Data | Aula | Ferramenta | Prompt (resumo) | Uso da saída |
-|------|------|------------|-----------------|--------------|
-| _dd/mm/aaaa_ | _Aula XX_ | _ex: ChatGPT_ | _ex: "Como injetar dependência via construtor no Spring?"_ | _ex: "Adaptei o exemplo ao meu Service"_ |
+### Ferramentas utilizadas:
+- [x] ChatGPT / Claude / Gemini
+- [ ] Copilot / Codeium
+- [ ] Nenhuma
 
----
+### Como utilizei:
+- Usei IA para estruturar os DTOs com validações Bean Validation.
+- Usei IA para configuração do GlobalExepctionHandler
+- Usei IA para estruturar os testes unitários com padrão AAA e testes de integração com Testcontainers.
+- Usei IA para adiantar codificação base da controller, sobrando apenas correções e pequenas mudanças.
 
-_Declaração: Ao submeter este repositório, confirmo que todo o código foi
-revisado, testado e compreendido por mim._
+### O que eu entendo 100%:
+- A lógica de validação de estoque negativo e alerta de estoque baixo (`estoqueAtual < estoqueMinimo`).
+- O fluxo de requisição REST com códigos HTTP 201, 204, 400, 404, 409 e 422.
+
+### O que precisei estudar mais:
+- Configuração do flyway
