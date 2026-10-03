@@ -93,4 +93,36 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(problem);
     }
+    @ExceptionHandler(NomeProdutoDuplicadoException.class)
+    public ResponseEntity<ProblemDetail> handleNomeProdutoDuplicado(
+            NomeProdutoDuplicadoException ex, WebRequest request) {
+        ProblemDetail problem = new ProblemDetail(
+                "https://socialconnect.api/errors/nome-duplicado",
+                "Nome de produto já cadastrado",
+                HttpStatus.CONFLICT.value(),
+                ex.getMessage(),
+                request.getDescription(false).replace("uri=", ""),
+                LocalDateTime.now(),
+                List.of()
+        );
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(problem);
+    }
+
+    // ✅ Estoque negativo / Regra de Negócio de Produto (422 Unprocessable Entity)
+    @ExceptionHandler(EstoqueNegativoException.class)
+    public ResponseEntity<ProblemDetail> handleEstoqueNegativo(
+            EstoqueNegativoException ex, WebRequest request) {
+
+        ProblemDetail problem = new ProblemDetail(
+                "https://socialconnect.api/errors/estoque-invalido",
+                "Operação de estoque inválida",
+                HttpStatus.UNPROCESSABLE_ENTITY.value(),
+                ex.getMessage(),
+                request.getDescription(false).replace("uri=", ""),
+                LocalDateTime.now(),
+                List.of()
+        );
+
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(problem);
+    }
 }
